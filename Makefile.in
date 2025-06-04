@@ -402,7 +402,7 @@ win :
 
 
 mingw :
-	make CC="gcc -mno-cygwin" MYLIBS="$(MYWINLIBS)" \
+	make CC="clang" MYLIBS="$(MYWINLIBS)" \
 	  CFLAGS="-Wall -fsigned-char -O2" LIBLDFLAGS="@MGWLIBS@" LDFLAGS="-L. -lqdbm @MGWLIBS@"
 
 
@@ -508,7 +508,6 @@ qdbm.dll : $(MYLIBOBJS)
 	  -Wl,--out-implib=lib$@.a \
 	  -Wl,--export-all-symbols \
 	  -Wl,--enable-auto-import \
-	  -Wl,--add-stdcall-alias \
 	  -Wl,--whole-archive \
 	  -Wl,--no-whole-archive $(MYLIBOBJS) $(LIBLDFLAGS)
 
